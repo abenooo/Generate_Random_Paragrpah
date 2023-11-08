@@ -32,3 +32,22 @@ const paragraphs = [
     return array;
   
   }
+
+  function generate() {
+
+    if (item.value == 0) {
+      alert("The value cannot be zero");
+    }else if (item.value > paragraphs.length){
+      const randomIndex = Math.floor(Math.random() * paragraphs.length);
+      dataContainer.innerHTML = `${paragraphs[randomIndex]}`;
+    }else{
+  
+      const shuffleParagraphs = paragraphs;
+      shuffle(paragraphs);
+  
+      const selectedParagraphs = shuffleParagraphs.slice(0,item.value);
+      const paragraphsHTML = selectedParagraphs.map(paragraphs => `<p>${paragraphs}</p>`).join("");
+      dataContainer.innerHTML = paragraphsHTML;
+  
+    }
+  }
