@@ -12,21 +12,27 @@
     <div class="card">
         <div class="row">
             <div>
-                <label for="items">Generate Random Paragraph</label>
+                <label for="items">Number of Paragraphs:</label>
             </div>
 
             <div>
-                <input type="number" value="5" id="items">
+                <input type="number" value="5" id="items" min="1">
             </div>
 
             <div>
-                <button onclick="generate()">Generate</button>
+                <button id="generateButton">Generate</button>
             </div>
 
         </div>
 
-        <div class="row" id="data"></div>
+        <div class="row" id="data">
+            <!-- Generated paragraphs will go here -->
+        </div>
     </div>
-<script src="script.js"></script>   
+<script src="script.js"></script>∏
+<script>
+    // Add an event listener to the button instead of using onclick in the markup
+    document.getElementById('generateButton').addEventListener('click', generate);
+</script>
 </body>
 </html>
