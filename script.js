@@ -11,3 +11,43 @@ const paragraphs = [
     'Dino Code Academy curriculum covers a comprehensive range of topics in JavaScript, Android app development, and other programming languages. It caters to beginners as well as intermediate and advanced learners, providing a learning path suitable for different skill levels.'
   ];
 
+  const item = document.getElementById("items");
+  const dataContainer = document.getElementById("data");
+
+
+  function shuffle(array){
+
+    let currentIndex = array.length;
+    let randomIndex;
+  
+    while(currentIndex!=0){
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      [array[currentIndex],array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]
+      ];
+    }
+    
+    return array;
+  
+  }
+
+  function generate() {
+
+    if (item.value == 0) {
+      alert("The value cannot be zero");
+    }else if (item.value > paragraphs.length){
+      const randomIndex = Math.floor(Math.random() * paragraphs.length);
+      dataContainer.innerHTML = `${paragraphs[randomIndex]}`;
+    }else{
+  
+      const shuffleParagraphs = paragraphs;
+      shuffle(paragraphs);
+  
+      const selectedParagraphs = shuffleParagraphs.slice(0,item.value);
+      const paragraphsHTML = selectedParagraphs.map(paragraphs => `<p>${paragraphs}</p>`).join("");
+      dataContainer.innerHTML = paragraphsHTML;
+  
+    }
+  }
