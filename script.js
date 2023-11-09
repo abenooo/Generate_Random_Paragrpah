@@ -1,5 +1,5 @@
 // Your OpenAI API key (make sure to keep this secure!)
-const OPENAI_API_KEY = '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';
+const OPENAI_API_KEY = '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';
 
 
 // Get references to the DOM elements
